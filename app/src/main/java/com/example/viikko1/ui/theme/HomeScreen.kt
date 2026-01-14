@@ -13,7 +13,7 @@ import com.example.viikko1.domain.*
 @Composable
 fun HomeScreen() {
 
-    var originalTasks by remember { mutableStateOf(mockTasks) } // var, jotta voidaan päivittää
+    var originalTasks by remember { mutableStateOf(mockTasks) } 
     var tasks by remember { mutableStateOf(originalTasks) }
 
     Column(
@@ -35,7 +35,7 @@ fun HomeScreen() {
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
 
-            // Suodattaa vain valmiit tehtävät
+            
             Button(
                 modifier = Modifier.weight(1f),
                 onClick = {
@@ -79,7 +79,7 @@ fun HomeScreen() {
                     dueDate = "2024-05-30"
                 )
                 tasks = addTask(tasks, newTask)
-                originalTasks = addTask(originalTasks, newTask) // päivitetään myös alkuperäinen lista
+                originalTasks = addTask(originalTasks, newTask) 
             }
         ) {
             Text("Lisää tehtävä")
@@ -112,7 +112,7 @@ fun HomeScreen() {
                     Button(onClick = {
                         val updatedTasks = Done(tasks, task.id)
                         tasks = updatedTasks
-                        originalTasks = Done(originalTasks, task.id) // päivitetään myös alkuperäinen lista
+                        originalTasks = Done(originalTasks, task.id) 
                     }) {
                         Text(if (task.done) "Peru" else "Valmis")
                     }
