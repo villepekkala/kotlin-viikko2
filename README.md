@@ -1,37 +1,15 @@
-# Kotlinperusteet-viikko1
-Viikko1 kotitehtävät
+# Viikko2
 
-[APK linkki, clickaa "View raw" niin lataa tietokoneelle](app-debug.apk)
+# Compose-tilanhallinta
 
-## Toiminnot
+Composable funktio piirtää UI:n tilan perusteella. Eli kun tilaa seurataan mutableStateOf, niin UI refreshaantuu kun tila muuttuu. Tässä tehtävässä seurattiin listaa ja kun lista muuttui kun sinne lisättin / poistettiin niin UI refreshaantui.
 
-- **Tehtävälista**  
-  Näyttää listan tehtävistä, joissa on otsikko, kuvaus, määräpäivä ja tila (valmis/kesken).
+# Miksi ViewModel eikä remember
 
-- **Lisää tehtävä**  
-  Luo uuden tehtävän, joka lisätään sekä nykyiseen että alkuperäiseen tehtävälistaan.
+ViewModel säilyttää arvon koko activityn ajan kun taas rememberissä säilyttää vain Composable funktion ajan. Esim kun tehtävässä kun clickaat, että tehtävä on valmis ja painat "vain valmiit". Tällöin näkyy kaikki missä tehtävät on valmiita eli "true" arvolla. Kun clickaat takaisin alkuperäiseen, painamalla "Palauta" nappia niin se ei muista enään noita vaan nollaa kaiken alkuperäiseen mocklistaan. Sama homma olisi kuin lisäisi tehtävän, tekee sen ja painaa "vain valmiit" ja "palauta" niin ohjelma ei muistaisi tuota.
 
-- **Vain valmiit**  
-  Suodattaa tehtävälistasta kaikki valmiiksi merkityt tehtävät.
+# Linkki videoon
+https://youtu.be/B3UJLkgNm1Q
 
-- **Järjestä**  
-  Järjestää nykyisen listan tehtävät määräpäivän mukaan nousevaan järjestykseen.
-
-- **Palauta**  
-  Palauttaa alkuperäisen tehtävälistan, mukaan lukien kaikki lisäämäsi tehtävät.
-
-- **Tehtävän tila**  
-  Napin avulla voit merkitä tehtävän valmiiksi tai peruuttaa valmiiksi merkityksen.
-
-
-
-### `ui/HomeScreen.kt`
-- Sisältää `HomeScreen`-Composable-funktion, joka näyttää käyttöliittymän
-
-  ### `domain/Task.kt`
-- `Task`-data class: kuvaa yksittäistä tehtävää (id, otsikko, kuvaus, määräpäivä String muodossa, valmis/kesken boolean).
-- `mockTasks`: esimerkkilista tehtävistä.
-- `addTask()`: lisää uuden tehtävän listaan.
-- `Done()`: muuttaa tehtävän tilan valmiiksi/kesken.
-- `filterByDone()`: suodattaa tehtävät valmiiden/kesken olevien mukaan.
-- `sortByDueDate()`: järjestää tehtävät määräpäivän mukaan.
+# APK download
+[https://github.com/villepekkala/Mobiiliohjelmointi-natiiviteknologioilla/raw/refs/tags/week2/app-debug.apk](https://github.com/villepekkala/Mobiiliohjelmointi-natiiviteknologioilla/raw/refs/heads/main/app-debug.apk)
