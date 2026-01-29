@@ -10,3 +10,5 @@ Viewmodelissa luodaan MutableStateFlow, joka sisältää tehtävälistan tässä
 # Linkki videoon
 https://youtu.be/6g9E5AX77gw
 
+# APK lataus 
+https://github.com/villepekkala/Mobiiliohjelmointi-natiiviteknologioilla/raw/refs/heads/main/app-debug.apk
