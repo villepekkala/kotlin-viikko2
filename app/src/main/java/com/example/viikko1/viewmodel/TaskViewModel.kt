@@ -1,55 +1,38 @@
 package com.example.viikko1.viewmodel
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.viikko1.domain.Task
-import com.example.viikko1.domain.mockTasks
+import com.example.viikko1.model.Task
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import com.example.viikko1.model.mockTasks
+
 
 class TaskViewModel : ViewModel() {
-    var tasks by mutableStateOf(listOf<Task>())
-        private set
 
-
-    private var originalTasks: List<Task> = emptyList()
+    private val _tasks = MutableStateFlow<List<Task>>(emptyList())
+    val tasks: StateFlow<List<Task>> = _tasks
 
     init {
-        tasks = mockTasks
-        originalTasks = mockTasks
+        _tasks.value = mockTasks
     }
-
 
     fun addTask(task: Task) {
-        tasks = tasks + task
-        originalTasks = originalTasks + task
+        _tasks.value = _tasks.value + task
     }
 
-
-    fun toggleDone(id: Int) {
-        tasks = tasks.map { if (it.id == id) it.copy(done = !it.done) else it }
-        originalTasks = originalTasks.map { if (it.id == id) it.copy(done = !it.done) else it }
-
+    fun toggleDone(taskId: Int) {
+        _tasks.value = _tasks.value.map {
+            if (it.id == taskId) it.copy(done = !it.done) else it
+        }
     }
 
-
-    fun removeTask(id: Int) {
-        tasks = tasks.filterNot { it.id == id }
-        originalTasks = originalTasks.filterNot { it.id == id }
+    fun removeTask(taskId: Int) {
+        _tasks.value = _tasks.value.filterNot { it.id == taskId }
     }
 
-
-    fun filterByDone(done: Boolean) {
-        tasks = originalTasks.filter { it.done == done }
-    }
-
-
-    fun sortByDueDate() {
-        tasks = tasks.sortedBy { it.dueDate }
-    }
-
-
-    fun resetTasks() {
-        tasks = originalTasks
+    fun updateTask(updatedTask: Task) {
+        _tasks.value = _tasks.value.map {
+            if (it.id == updatedTask.id) updatedTask else it
+        }
     }
 }

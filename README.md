@@ -1,37 +1,12 @@
-# Kotlinperusteet-viikko1
-Viikko1 kotitehtävät
+# Viikko3
 
-[APK linkki, clickaa "View raw" niin lataa tietokoneelle](app-debug.apk)
+# MVVM
 
-## Toiminnot
+Lyhenne Model-View-ViewModel. Eli kyseessä on ohjelmointiarkkitehtuuri, missä ohjelmisto jaetaan kolmeen osaan. Model, missä on sovelluksen data. View missä on käyttöliittymä, esim compose funktiot, jotka piirtävät datan ruudulle ja reagoivat syötteisiin. Viewmodel joka yhdistää sitten modelin ja viewin nimensä mukaan ja toimii niin sanotusti siltana näiden välillä. Se tarjoaa Modelin datan, Viewin UI:lle ja vastaanottaa käyttäjän syötteet. MVVM on hyödyllinen, kun on selkeää kellä / missä on "vastuu" tietystä asiasta ja MVVM malli toimii hyvin Composen kanssa, koska UI voi vain kuunella ViewModelin tiloja ja päivittyä automaattisesti.
 
-- **Tehtävälista**  
-  Näyttää listan tehtävistä, joissa on otsikko, kuvaus, määräpäivä ja tila (valmis/kesken).
+# Miten StateFlow toimii
+Viewmodelissa luodaan MutableStateFlow, joka sisältää tehtävälistan tässä sovelluksessa. UI lukee dataa collectAsState() funktiolla ja kun StateFlow muuttuu niin UI muuttuu automaattisesti Compose funktion avulla.
 
-- **Lisää tehtävä**  
-  Luo uuden tehtävän, joka lisätään sekä nykyiseen että alkuperäiseen tehtävälistaan.
+# Linkki videoon
+https://youtu.be/6g9E5AX77gw
 
-- **Vain valmiit**  
-  Suodattaa tehtävälistasta kaikki valmiiksi merkityt tehtävät.
-
-- **Järjestä**  
-  Järjestää nykyisen listan tehtävät määräpäivän mukaan nousevaan järjestykseen.
-
-- **Palauta**  
-  Palauttaa alkuperäisen tehtävälistan, mukaan lukien kaikki lisäämäsi tehtävät.
-
-- **Tehtävän tila**  
-  Napin avulla voit merkitä tehtävän valmiiksi tai peruuttaa valmiiksi merkityksen.
-
-
-
-### `ui/HomeScreen.kt`
-- Sisältää `HomeScreen`-Composable-funktion, joka näyttää käyttöliittymän
-
-  ### `domain/Task.kt`
-- `Task`-data class: kuvaa yksittäistä tehtävää (id, otsikko, kuvaus, määräpäivä String muodossa, valmis/kesken boolean).
-- `mockTasks`: esimerkkilista tehtävistä.
-- `addTask()`: lisää uuden tehtävän listaan.
-- `Done()`: muuttaa tehtävän tilan valmiiksi/kesken.
-- `filterByDone()`: suodattaa tehtävät valmiiden/kesken olevien mukaan.
-- `sortByDueDate()`: järjestää tehtävät määräpäivän mukaan.
