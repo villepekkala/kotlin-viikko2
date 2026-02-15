@@ -19,5 +19,5 @@ Api avain on tallennettu local.properties tiedostoon, josta sitten gradle lukee 
 # Youtube
 https://youtu.be/1HmN0Hy1L0Y
 
-#APK
+# APK
 https://github.com/villepekkala/Mobiiliohjelmointi-natiiviteknologioilla/raw/refs/heads/week5-branch/app-debug.apk
