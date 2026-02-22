@@ -30,7 +30,7 @@ Silloin kun tietokantaan tallennetaan uusi haku, niin tällöin Room puskee päi
 # Välimuisti logiikka
 Käyttäjän etsiessä kaupunkia, niin repository tarkistaa ensin Room tietokannasta, löytyykö kyseinen sää jo sieltä. Jos data löytyy ja sen aikaleimasta on alle 30 minuuttia niin se näyttää sen datan, jolloin API hakua ei tehdä. Jos dataa ei löydy tai se on yli 30 minuuttia vanhaa dataa niin tällöin repository hakee uusimman sään OpenWeatherista. Haettu uusi sää tallennetaan ensin tietokantaan, minkä jälkeen se näytetään käyttäjälle ja myöskin hakuhistoria päivittyy automaattisesti. Haku on tosin "kirjain sensitiivinen" eli jos hakee isolla kirjaimella ja entinen haku on pienellä niin se hakee uuden tiedon.
 
-#APK
+# APK
 https://github.com/villepekkala/Mobiiliohjelmointi-natiiviteknologioilla/raw/refs/heads/week5-branch/app-debug.apk
 
 # Youtube
